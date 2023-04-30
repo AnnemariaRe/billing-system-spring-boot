@@ -5,7 +5,7 @@ services:
     image: symptoma/activemq:latest
     container_name: activemq
     ports:
-      - "61616:61616"
+      - "${ACTIVEMQ_PORT}:${ACTIVEMQ_PORT}"
       - "8161:8161"
 
   db:
@@ -14,11 +14,11 @@ services:
     container_name: database
     restart: always
     ports:
-      - '5433:5432'
+      - "5433:${DB_INTERNAL_PORT}"
     environment:
       POSTGRES_DB: "nexign_project_db"
-      POSTGRES_USER: "test"
-      POSTGRES_PASSWORD: "test"
+      POSTGRES_USER: "${DB_PASSWORD}"
+      POSTGRES_PASSWORD: "${DB_USERNAME}"
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
@@ -27,8 +27,10 @@ services:
       context: BRT-service
       dockerfile: Dockerfile
     container_name: brt-service
+    env_file:
+      - .env
     ports:
-      - '8081:8081'
+      - "${BRT_PORT}:${BRT_PORT}"
     depends_on:
       - db
       - activemq
@@ -43,8 +45,10 @@ services:
       context: CDR-service
       dockerfile: Dockerfile
     container_name: cdr-service
+    env_file:
+      - .env
     ports:
-      - '8082:8082'
+      - "${CDR_PORT}:${CDR_PORT}"
     depends_on:
       - db
     volumes:
@@ -55,8 +59,10 @@ services:
       context: CRM-service
       dockerfile: Dockerfile
     container_name: crm-service
+    env_file:
+      - .env
     ports:
-      - '8083:8083'
+      - "${CRM_PORT}:${CRM_PORT}"
     depends_on:
       - db
       - activemq
@@ -67,8 +73,10 @@ services:
       context: HRS-service
       dockerfile: Dockerfile
     container_name: hrs-service
+    env_file:
+      - .env
     ports:
-      - '8084:8084'
+      - "${HRS_PORT}:${HRS_PORT}"
     depends_on:
       - db
       - activemq
