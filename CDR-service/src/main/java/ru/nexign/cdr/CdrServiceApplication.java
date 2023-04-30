@@ -9,12 +9,11 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(scanBasePackages = {"ru.nexign"})
 @ComponentScan(basePackages = { "ru.nexign.jpa", "ru.nexign.cdr"})
-@EntityScan("ru.nexign.jpa.entity.*")
-@EnableJpaRepositories
+@EntityScan("ru.nexign.jpa.entity")
+@EnableJpaRepositories({"ru.nexign.jpa"})
 public class CdrServiceApplication {
-
     public static void main(String[] args) {
-        ApplicationContext context = SpringApplication.run(CdrServiceApplication.class, args);
+        SpringApplication.run(CdrServiceApplication.class, args);
     }
 
 }

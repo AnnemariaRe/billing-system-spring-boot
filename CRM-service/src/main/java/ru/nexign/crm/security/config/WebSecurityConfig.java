@@ -33,7 +33,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity http) {
         http.csrf().disable().cors().disable()
                 .authorizeRequests()
-                .antMatchers("auth/login").permitAll()
                 .antMatchers("/auth/login").not().fullyAuthenticated()
                 .antMatchers("/manager/**").hasRole("MANAGER")
                 .antMatchers("/abonent/**").hasRole("ABONENT")

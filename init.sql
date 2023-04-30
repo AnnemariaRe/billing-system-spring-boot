@@ -15,7 +15,7 @@ create table if not exists public.tariffs
 );
 
 alter table public.tariffs
-    owner to "user";
+    owner to test;
 
 create table if not exists public.clients
 (
@@ -31,7 +31,7 @@ create table if not exists public.clients
 );
 
 alter table public.clients
-    owner to "user";
+    owner to test;
 
 create table if not exists public.reports
 (
@@ -45,7 +45,7 @@ create table if not exists public.reports
 );
 
 alter table  public.reports
-    owner to "user";
+    owner to test;
 
 create table if not exists public.client_calls
 (
@@ -62,7 +62,7 @@ create table if not exists public.client_calls
 );
 
 alter table public.client_calls
-    owner to "user";
+    owner to test;
 
 create table if not exists public.users
 (
@@ -79,8 +79,7 @@ create table if not exists public.users
 );
 
 alter table public.users
-    owner to "user";
-
+    owner to test;
 
 
 INSERT INTO public.tariffs(
@@ -94,3 +93,15 @@ VALUES ('06', null, null, 100, 300, false, false, 'Unlimited300', 1);
 INSERT INTO public.tariffs(
     id, first_minute_limit, first_minute_price, fix_price, free_minute_limit, is_for_clients_free, is_incoming_free, name, next_minute_price)
 VALUES ('11', 100, 0.5, null, null, false, true, 'Regular', 1.5);
+
+INSERT INTO public.clients (id, balance, phone_number, tariff_id)
+VALUES (-1, 500.0, 79999999999, '11')
+ON CONFLICT (phone_number) DO NOTHING;
+
+INSERT INTO public.users(
+    id, password, phone_number, role, username)
+VALUES (1, '$2a$10$aQFb2GpxLwFx2zhzp4u8auMzcx.AF8SLoTcZE7kMUzi4ATTJMWpPK', 0, 'ROLE_MANAGER', 'manager');
+
+INSERT INTO public.users(
+    id, password, phone_number, role, username)
+VALUES (2, '$2a$10$gVlo6kKC4CiiUI9Vl54Eg.mCvHmUiVBgxS0XHVcgmUvnklJJavqgm', 79999999999, 'ROLE_ABONENT', 'abonent');

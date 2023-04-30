@@ -7,6 +7,7 @@ import ru.nexign.cdr.generator.PhoneNumberGenerator;
 import ru.nexign.cdr.generator.cdr.CallTimeGenerator;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
@@ -53,14 +54,16 @@ public class CdrGenerator {
             }
         }
 
-        String[] fields = filePath.split("/");
-        Path path = Paths.get(fields[0], fields[1]);
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path.toFile()))) {
+        File file = new File(filePath);
+        if (!file.exists()) {
+            file.createNewFile();
+        }
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
             for (String cdr : cdrList) {
                 writer.write(cdr);
                 writer.newLine();
             }
-
         } catch (IOException e) {
             throw new IOException(e.getMessage());
         }

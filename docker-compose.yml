@@ -6,6 +6,7 @@ services:
     container_name: activemq
     ports:
       - "61616:61616"
+      - "8161:8161"
 
   db:
     image: postgres:latest
@@ -31,19 +32,23 @@ services:
     depends_on:
       - db
       - activemq
+      - crm-service
+      - cdr-service
+      - hrs-service
+    volumes:
+      - ./cdr:/cdr
 
   cdr-service:
     build:
       context: CDR-service
       dockerfile: Dockerfile
     container_name: cdr-service
-    environment:
-      - DB_HOST=db
     ports:
       - '8082:8082'
     depends_on:
-      - activemq
       - db
+    volumes:
+      - ./cdr:/cdr
 
   crm-service:
     build:
@@ -65,4 +70,5 @@ services:
     ports:
       - '8084:8084'
     depends_on:
+      - db
       - activemq

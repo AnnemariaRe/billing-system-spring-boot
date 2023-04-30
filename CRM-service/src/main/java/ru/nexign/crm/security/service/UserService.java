@@ -30,29 +30,6 @@ public class UserService {
         this.encoder = encoder;
     }
 
-    @PostConstruct
-    public void init() {
-        var manager = findByUsername("manager");
-        if (manager == null) {
-            userRepository.save(new UserEntity("manager",
-                    "0",
-                    encoder.encode("12345"),
-                    UserRole.ROLE_MANAGER.toString()));
-        }
-
-        var abonent = findByUsername("abonent");
-        if (abonent == null) {
-            if (!clientsRepository.findAll().isEmpty()) {
-                var phoneNumber = clientsRepository.findAll().get(0).getPhoneNumber();
-                userRepository.save(new UserEntity("abonent",
-                        phoneNumber,
-                        encoder.encode("abcde"),
-                        UserRole.ROLE_ABONENT.toString()));
-            }
-        }
-        log.info("users are created");
-    }
-
     public void register(UserDto user) {
         var entity = mapper.toEntity(user);
         entity.setPassword(encoder.encode(user.getPassword()));

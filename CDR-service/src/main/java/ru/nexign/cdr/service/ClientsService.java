@@ -22,8 +22,11 @@ public class ClientsService {
 
     @PostConstruct
     public void init()  {
-        var clients = generator.createClients();
-        clientRepo.saveAll(clients);
-        log.info("Clients are generated successfully");
+        // <= 1, так как для теста добавлен один клиент в init.sql
+        if (clientRepo.findAll().size() <= 1) {
+            var clients = generator.createClients();
+            clientRepo.saveAll(clients);
+            log.info("Clients are generated successfully");
+        }
     }
 }

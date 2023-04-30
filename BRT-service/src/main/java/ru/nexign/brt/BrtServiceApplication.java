@@ -8,13 +8,12 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(scanBasePackages = {"ru.nexign"})
-@ComponentScan(basePackages = { "ru.nexign.jpa" })
-@EntityScan("ru.nexign.jpa.entity.*")
-@EnableJpaRepositories("ru.nexign.jpa.entity")
+@ComponentScan(basePackages = { "ru.nexign.jpa", "ru.nexign.brt"})
+@EntityScan("ru.nexign.jpa.entity")
+@EnableJpaRepositories({"ru.nexign.jpa", "ru.nexign.brt"})
 @EnableCaching
 public class BrtServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(BrtServiceApplication.class, args);
     }
-
 }

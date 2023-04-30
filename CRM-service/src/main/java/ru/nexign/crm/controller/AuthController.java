@@ -47,15 +47,4 @@ public class AuthController {
 
         return ResponseEntity.ok("Your jwt token: " + token); // отправка токена пользователю для последующих запросов
     }
-
-    @RequestMapping(
-            method = RequestMethod.GET,
-            path = "/test"
-    )
-    public ResponseEntity<?> test() {
-        var users = repo.findAll();
-
-        return ResponseEntity.ok("{} " + users); // отправка токена пользователю для последующих запросов
-    }
-
 }

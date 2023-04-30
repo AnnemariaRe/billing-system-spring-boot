@@ -1,6 +1,7 @@
 package ru.nexign.brt.messaging.tariffication;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,7 @@ import ru.nexign.jpa.dto.response.Response;
 
 
 @Service
+@EnableJms
 public class TarifficationMessageConsumer {
 
     private final CallService callService;

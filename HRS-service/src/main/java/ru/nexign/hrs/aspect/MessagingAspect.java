@@ -31,11 +31,11 @@ public class MessagingAspect {
     @SneakyThrows
     @Before("pointcut()")
     public void beforeRequestReceived(JoinPoint joinPoint) {
-        log.info("==> Request received to method {} with args: {}", joinPoint.getSignature().getName(), mapper.writeValueAsString(joinPoint.getArgs().length));
+        log.info("==> Request received to method {} with args length: {}", joinPoint.getSignature().getName(), joinPoint.getArgs().length);
     }
 
     @AfterReturning(value = "pointcut()", returning = "response")
     public void afterReturningResponse(JoinPoint joinPoint, Response response) throws JsonProcessingException {
-        log.info("<== Method {} returned response: {}", joinPoint.getSignature().getName(), mapper.writeValueAsString(response));
+        log.info("<== Method {} returned response length: {}", joinPoint.getSignature().getName(), mapper.writeValueAsString(response).length());
     }
 }

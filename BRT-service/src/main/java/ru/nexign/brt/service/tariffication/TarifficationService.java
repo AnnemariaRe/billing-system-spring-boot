@@ -55,6 +55,7 @@ public class TarifficationService {
     // Запускается тарификация, если в базе данных пусто
     @PostConstruct
     public void firstTarifficationCall() {
+        log.info("AAAAAAAAAAAAAAAAAAAAAA");
         if (callRepository.findAll().isEmpty()) {
             var response = runTariffication(new CdrPeriod(firstMonth, firstYear));
             if (response.getStatus().equals(ResponseStatus.ERROR)) {
