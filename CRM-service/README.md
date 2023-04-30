@@ -27,16 +27,16 @@ Method:
 Request body:
 
     {
-        "phoneNumber": "79013402041",
+        "phoneNumber": "79999999999",
         "money": 100.00
     }
 
 Response body:
 
     {
-        "id": 38,
-        "phoneNumber": "79000223103",
-        "money": 320.00
+        "id": -1,
+        "phoneNumber": "79999999999",
+        "money": 600.00
     }
 -----
 
@@ -51,9 +51,9 @@ Method:
 Response body:
 
     {
-        "id": 26,
-        "phoneNumber": "79340343130",
-        "tariffId": "06",
+        "id": -1,
+        "phoneNumber": "79999999999",
+        "tariffId": "11",
         "payload": [
            {
                "id": 157,
@@ -89,15 +89,15 @@ Method:
 Request body:
 
     {
-       "phoneNumber": "79340343130",
+       "phoneNumber": "79999999999",
        "tariffId": "11"
     }
 
 Response body:
 
     {
-       "id": 487,
-       "phoneNumber": "79340343130",
+       "id": -1,
+       "phoneNumber": "79999999999",
        "tariffId": "11"
     }
 

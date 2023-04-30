@@ -29,10 +29,3 @@
 [Миграции](db/migrations)
 
 ### Подробнее об архитектуре базы данных:  [тык](JPA-entities/README.md)        
-
--------
-Запуск сервисов:    
-    
-    CRM -> CDR -> HRS -> BRT
-
-Для работы Active MQ необходимо запустить [docker-compose](docker-compose.yml)
