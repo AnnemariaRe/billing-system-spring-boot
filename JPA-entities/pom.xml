@@ -7,6 +7,7 @@
 		<groupId>ru.nexign</groupId>
 		<artifactId>BillingSystem</artifactId>
 		<version>1.0-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<artifactId>JPA-entities</artifactId>
@@ -32,11 +33,6 @@
             <version>1.0.2</version>
             <scope>compile</scope>
         </dependency>
-		<dependency>
-			<groupId>jakarta.persistence</groupId>
-			<artifactId>jakarta.persistence-api</artifactId>
-			<version>2.2.3</version>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>

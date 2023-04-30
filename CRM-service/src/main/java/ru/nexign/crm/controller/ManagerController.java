@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import ru.nexign.crm.messaging.MessageProducer;
 import ru.nexign.jpa.dto.ClientDto;
 import ru.nexign.jpa.enums.ResponseStatus;
-import ru.nexign.jpa.request.body.TariffRequestBody;
-import ru.nexign.jpa.response.body.TariffResponseBody;
-import ru.nexign.jpa.response.body.TarifficationResponseBody;
+import ru.nexign.jpa.dto.request.body.TariffRequestBody;
+import ru.nexign.jpa.dto.response.body.TariffResponseBody;
+import ru.nexign.jpa.dto.response.body.TarifficationResponseBody;
 
 @RestController
 @RequestMapping(path = "/manager")

@@ -3,6 +3,66 @@ version: '3.9'
 services:
   activemq:
     image: symptoma/activemq:latest
-    container_name: 'activemq'
+    container_name: activemq
     ports:
-      - 61616:61616
+      - "61616:61616"
+
+  db:
+    image: postgres:latest
+    privileged: true
+    container_name: database
+    restart: always
+    ports:
+      - '5433:5432'
+    environment:
+      POSTGRES_DB: "nexign_project_db"
+      POSTGRES_USER: "test"
+      POSTGRES_PASSWORD: "test"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  brt-service:
+    build:
+      context: BRT-service
+      dockerfile: Dockerfile
+    container_name: brt-service
+    ports:
+      - '8081:8081'
+    depends_on:
+      - db
+      - activemq
+
+  cdr-service:
+    build:
+      context: CDR-service
+      dockerfile: Dockerfile
+    container_name: cdr-service
+    environment:
+      - DB_HOST=db
+    ports:
+      - '8082:8082'
+    depends_on:
+      - activemq
+      - db
+
+  crm-service:
+    build:
+      context: CRM-service
+      dockerfile: Dockerfile
+    container_name: crm-service
+    ports:
+      - '8083:8083'
+    depends_on:
+      - db
+      - activemq
+      - cdr-service
+
+  hrs-service:
+    build:
+      context: HRS-service
+      dockerfile: Dockerfile
+    container_name: hrs-service
+    ports:
+      - '8084:8084'
+    depends_on:
+      - activemq

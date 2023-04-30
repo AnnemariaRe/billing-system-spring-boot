@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import ru.nexign.jpa.request.body.AuthRequest;
+import ru.nexign.crm.security.service.UserService;
+import ru.nexign.jpa.dao.UserRepository;
+import ru.nexign.jpa.dto.request.body.AuthRequest;
 import ru.nexign.crm.security.config.JwtUtils;
 import ru.nexign.crm.security.service.UserDetailsServiceImpl;
 
@@ -17,11 +19,13 @@ public class AuthController {
     private final AuthenticationManager authenticationManager;
     private final JwtUtils jwtUtil;
     private final UserDetailsServiceImpl userDetailsService;
+    private final UserRepository repo;
 
-    public AuthController(AuthenticationManager authenticationManager, JwtUtils jwtUtil, UserDetailsServiceImpl userDetailsService) {
+    public AuthController(AuthenticationManager authenticationManager, JwtUtils jwtUtil, UserDetailsServiceImpl userDetailsService, UserRepository repo) {
         this.authenticationManager = authenticationManager;
         this.jwtUtil = jwtUtil;
         this.userDetailsService = userDetailsService;
+        this.repo = repo;
     }
 
     // Генерирует jwt токен для существующего пользователя
@@ -42,6 +46,16 @@ public class AuthController {
         final String token = jwtUtil.generateToken(userDetails);
 
         return ResponseEntity.ok("Your jwt token: " + token); // отправка токена пользователю для последующих запросов
+    }
+
+    @RequestMapping(
+            method = RequestMethod.GET,
+            path = "/test"
+    )
+    public ResponseEntity<?> test() {
+        var users = repo.findAll();
+
+        return ResponseEntity.ok("{} " + users); // отправка токена пользователю для последующих запросов
     }
 
 }

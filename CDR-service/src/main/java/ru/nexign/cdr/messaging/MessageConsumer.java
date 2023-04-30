@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 import ru.nexign.cdr.service.CdrService;
 import ru.nexign.jpa.enums.ResponseStatus;
 import ru.nexign.jpa.model.CdrPeriod;
-import ru.nexign.jpa.request.Request;
-import ru.nexign.jpa.response.Response;
+import ru.nexign.jpa.dto.request.Request;
+import ru.nexign.jpa.dto.response.Response;
 
 import java.io.IOException;
 

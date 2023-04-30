@@ -1,14 +1,16 @@
-package ru.nexign.jpa.request;
+package ru.nexign.jpa.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import ru.nexign.jpa.enums.ResponseStatus;
 
 import java.io.Serializable;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class Request implements Serializable {
+public class Response implements Serializable {
     private String message;
+    private ResponseStatus status;
 }

@@ -3,17 +3,16 @@ package ru.nexign.crm.messaging;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.SneakyThrows;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.core.JmsMessagingTemplate;
 import org.springframework.stereotype.Component;
 import ru.nexign.jpa.dto.ClientDto;
-import ru.nexign.jpa.request.Request;
-import ru.nexign.jpa.request.UsernameRequest;
-import ru.nexign.jpa.request.body.DepositRequestBody;
-import ru.nexign.jpa.request.body.TariffRequestBody;
-import ru.nexign.jpa.response.Response;
+import ru.nexign.jpa.dto.request.Request;
+import ru.nexign.jpa.dto.request.UsernameRequest;
+import ru.nexign.jpa.dto.request.body.DepositRequestBody;
+import ru.nexign.jpa.dto.request.body.TariffRequestBody;
+import ru.nexign.jpa.dto.response.Response;
 
 @Component
 public class MessageProducer {

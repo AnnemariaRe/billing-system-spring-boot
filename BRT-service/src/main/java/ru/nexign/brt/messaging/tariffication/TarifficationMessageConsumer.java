@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import ru.nexign.brt.service.*;
 import ru.nexign.brt.service.tariffication.TarifficationService;
 import ru.nexign.jpa.model.CdrPeriod;
-import ru.nexign.jpa.request.Request;
-import ru.nexign.jpa.response.Response;
+import ru.nexign.jpa.dto.request.Request;
+import ru.nexign.jpa.dto.response.Response;
 
 
 @Service

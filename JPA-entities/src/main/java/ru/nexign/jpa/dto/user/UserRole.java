@@ -1,4 +1,4 @@
-package ru.nexign.jpa.user;
+package ru.nexign.jpa.dto.user;
 
 public enum UserRole {
     ROLE_ABONENT,

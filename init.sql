@@ -1,4 +1,4 @@
-create table public.tariffs
+create table if not exists public.tariffs
 (
     id                  varchar(255) not null
         primary key,
@@ -12,13 +12,12 @@ create table public.tariffs
         constraint uk_lt51ssbtjwb2x833uph2ngfag
             unique,
     next_minute_price   numeric(19, 2)
-)
-    using ???;
+);
 
 alter table public.tariffs
-    owner to service;
+    owner to "user";
 
-create table public.clients
+create table if not exists public.clients
 (
     id           bigserial
         primary key,
@@ -29,13 +28,12 @@ create table public.clients
     tariff_id    varchar(255)   not null
         constraint fkm1kg1pe0ij97a1c4r9hk0biw1
             references public.tariffs
-)
-    using ???;
+);
 
 alter table public.clients
-    owner to service;
+    owner to "user";
 
-create table public.reports
+create table if not exists public.reports
 (
     id            bigserial
         primary key,
@@ -44,13 +42,12 @@ create table public.reports
     client_id     bigint       not null
         constraint fkmiqk34gfam6emk63vq844fem2
             references public.clients
-)
-    using ???;
+);
 
-alter table public.reports
-    owner to service;
+alter table  public.reports
+    owner to "user";
 
-create table public.client_calls
+create table if not exists public.client_calls
 (
     id         bigserial
         primary key,
@@ -62,13 +59,12 @@ create table public.client_calls
     report_id  bigint       not null
         constraint fk32bldqpjd6205vrqan0k9s5ns
             references public.reports
-)
-    using ???;
+);
 
 alter table public.client_calls
-    owner to service;
+    owner to "user";
 
-create table public.users
+create table if not exists public.users
 (
     id           bigserial
         primary key,
@@ -80,8 +76,21 @@ create table public.users
     username     varchar(255) not null
         constraint uk_r43af9ap4edm43mmtq01oddj6
             unique
-)
-    using ???;
+);
 
 alter table public.users
-    owner to service;
+    owner to "user";
+
+
+
+INSERT INTO public.tariffs(
+    id, first_minute_limit, first_minute_price, fix_price, free_minute_limit, is_for_clients_free, is_incoming_free, name, next_minute_price)
+VALUES ('03', null, 1.5, null, null, false, false, 'Perminute', null);
+
+INSERT INTO public.tariffs(
+    id, first_minute_limit, first_minute_price, fix_price, free_minute_limit, is_for_clients_free, is_incoming_free, name, next_minute_price)
+VALUES ('06', null, null, 100, 300, false, false, 'Unlimited300', 1);
+
+INSERT INTO public.tariffs(
+    id, first_minute_limit, first_minute_price, fix_price, free_minute_limit, is_for_clients_free, is_incoming_free, name, next_minute_price)
+VALUES ('11', 100, 0.5, null, null, false, true, 'Regular', 1.5);

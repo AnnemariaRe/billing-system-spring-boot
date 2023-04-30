@@ -5,9 +5,9 @@ import ru.nexign.jpa.entity.CallEntity;
 import ru.nexign.jpa.entity.ClientEntity;
 import ru.nexign.jpa.entity.ReportEntity;
 import ru.nexign.jpa.entity.TariffEntity;
-import ru.nexign.jpa.user.UserDto;
-import ru.nexign.jpa.user.UserEntity;
-import ru.nexign.jpa.user.UserRole;
+import ru.nexign.jpa.dto.user.UserDto;
+import ru.nexign.jpa.entity.UserEntity;
+import ru.nexign.jpa.dto.user.UserRole;
 
 import java.util.ArrayList;
 import java.util.List;

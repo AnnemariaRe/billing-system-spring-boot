@@ -1,4 +1,4 @@
-package ru.nexign.jpa.user;
+package ru.nexign.jpa.entity;
 
 import javax.persistence.*;
 import lombok.Getter;

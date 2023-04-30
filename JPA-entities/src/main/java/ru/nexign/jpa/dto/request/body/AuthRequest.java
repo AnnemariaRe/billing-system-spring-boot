@@ -1,6 +1,5 @@
-package ru.nexign.jpa.user;
+package ru.nexign.jpa.dto.request.body;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -8,9 +7,7 @@ import java.io.Serializable;
 
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
-public class AuthDto implements Serializable {
+public class AuthRequest implements Serializable {
     private String username;
     private String password;
-
 }

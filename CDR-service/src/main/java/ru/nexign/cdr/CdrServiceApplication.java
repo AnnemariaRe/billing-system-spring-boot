@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(scanBasePackages = {"ru.nexign"})
-@ComponentScan(basePackages = { "ru.nexign.jpa" })
+@ComponentScan(basePackages = { "ru.nexign.jpa", "ru.nexign.cdr"})
 @EntityScan("ru.nexign.jpa.entity.*")
 @EnableJpaRepositories
 public class CdrServiceApplication {

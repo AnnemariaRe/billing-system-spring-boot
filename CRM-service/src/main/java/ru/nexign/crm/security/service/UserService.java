@@ -1,18 +1,21 @@
 package ru.nexign.crm.security.service;
 
-import jakarta.annotation.PostConstruct;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.nexign.jpa.dao.ClientsRepository;
 import ru.nexign.jpa.dao.UserRepository;
 import ru.nexign.jpa.dto.Mapper;
-import ru.nexign.jpa.user.UserDto;
-import ru.nexign.jpa.user.UserEntity;
-import ru.nexign.jpa.user.UserRole;
+import ru.nexign.jpa.dto.user.UserDto;
+import ru.nexign.jpa.entity.UserEntity;
+import ru.nexign.jpa.dto.user.UserRole;
+
+import javax.annotation.PostConstruct;
 
 
 @Service
+@Slf4j
 public class UserService {
     private final UserRepository userRepository;
     private final ClientsRepository clientsRepository;
@@ -39,12 +42,15 @@ public class UserService {
 
         var abonent = findByUsername("abonent");
         if (abonent == null) {
-            var phoneNumber = clientsRepository.findAll().get(0).getPhoneNumber();
-            userRepository.save(new UserEntity("abonent",
-                    phoneNumber,
-                    encoder.encode("abcde"),
-                    UserRole.ROLE_ABONENT.toString()));
+            if (!clientsRepository.findAll().isEmpty()) {
+                var phoneNumber = clientsRepository.findAll().get(0).getPhoneNumber();
+                userRepository.save(new UserEntity("abonent",
+                        phoneNumber,
+                        encoder.encode("abcde"),
+                        UserRole.ROLE_ABONENT.toString()));
+            }
         }
+        log.info("users are created");
     }
 
     public void register(UserDto user) {

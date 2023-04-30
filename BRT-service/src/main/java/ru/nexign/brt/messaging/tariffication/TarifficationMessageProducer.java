@@ -9,8 +9,8 @@ import org.springframework.jms.core.JmsMessagingTemplate;
 import org.springframework.stereotype.Component;
 import ru.nexign.jpa.model.CdrPeriod;
 import ru.nexign.jpa.model.CdrList;
-import ru.nexign.jpa.request.Request;
-import ru.nexign.jpa.response.Response;
+import ru.nexign.jpa.dto.request.Request;
+import ru.nexign.jpa.dto.response.Response;
 
 @Component
 public class TarifficationMessageProducer {

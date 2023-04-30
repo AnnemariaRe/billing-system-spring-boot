@@ -13,7 +13,7 @@ import ru.nexign.jpa.dao.UserRepository;
 import ru.nexign.jpa.dto.CallDto;
 import ru.nexign.jpa.dto.Mapper;
 import ru.nexign.jpa.entity.ReportEntity;
-import ru.nexign.jpa.response.body.ReportResponseBody;
+import ru.nexign.jpa.dto.response.body.ReportResponseBody;
 
 import java.math.BigDecimal;
 import java.util.List;

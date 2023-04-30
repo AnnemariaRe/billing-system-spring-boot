@@ -7,7 +7,7 @@ import ru.nexign.brt.service.ReportService;
 import ru.nexign.jpa.dto.ClientDto;
 import ru.nexign.jpa.model.PhoneNumberBalance;
 import ru.nexign.jpa.model.ClientReport;
-import ru.nexign.jpa.response.body.TarifficationResponseBody;
+import ru.nexign.jpa.dto.response.body.TarifficationResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;

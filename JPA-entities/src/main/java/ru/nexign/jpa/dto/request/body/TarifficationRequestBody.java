@@ -1,4 +1,4 @@
-package ru.nexign.jpa.request.body;
+package ru.nexign.jpa.dto.request.body;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

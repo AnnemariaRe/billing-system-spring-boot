@@ -6,23 +6,19 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-import ru.nexign.brt.dao.CallRepository;
 import ru.nexign.brt.dao.ClientRepository;
-import ru.nexign.brt.dao.ReportRepository;
 import ru.nexign.brt.dao.TariffRepository;
 import ru.nexign.brt.exception.BrtException;
 import ru.nexign.brt.exception.ClientNotFoundException;
 import ru.nexign.brt.exception.TariffNotFoundException;
-import ru.nexign.jpa.dto.CallDto;
 import ru.nexign.jpa.dto.ClientDto;
 import ru.nexign.jpa.dto.Mapper;
-import ru.nexign.jpa.request.body.DepositRequestBody;
-import ru.nexign.jpa.request.body.TariffRequestBody;
-import ru.nexign.jpa.response.body.DepositResponseBody;
-import ru.nexign.jpa.response.body.TariffResponseBody;
+import ru.nexign.jpa.dto.request.body.DepositRequestBody;
+import ru.nexign.jpa.dto.request.body.TariffRequestBody;
+import ru.nexign.jpa.dto.response.body.DepositResponseBody;
+import ru.nexign.jpa.dto.response.body.TariffResponseBody;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 @Service
 @Slf4j

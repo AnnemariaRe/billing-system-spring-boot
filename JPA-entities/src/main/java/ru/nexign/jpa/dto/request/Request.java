@@ -1,4 +1,4 @@
-package ru.nexign.jpa.request;
+package ru.nexign.jpa.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,7 +9,6 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class UsernameRequest implements Serializable {
+public class Request implements Serializable {
     private String message;
-    private String username;
 }

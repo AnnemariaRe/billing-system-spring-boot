@@ -1,4 +1,4 @@
-package ru.nexign.jpa.response.body;
+package ru.nexign.jpa.dto.response.body;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

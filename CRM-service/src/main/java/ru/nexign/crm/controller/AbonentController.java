@@ -8,9 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.nexign.crm.messaging.MessageProducer;
 import ru.nexign.jpa.enums.ResponseStatus;
-import ru.nexign.jpa.request.body.DepositRequestBody;
-import ru.nexign.jpa.response.body.DepositResponseBody;
-import ru.nexign.jpa.response.body.ReportResponseBody;
+import ru.nexign.jpa.dto.request.body.DepositRequestBody;
+import ru.nexign.jpa.dto.response.body.DepositResponseBody;
+import ru.nexign.jpa.dto.response.body.ReportResponseBody;
 
 import java.security.Principal;
 

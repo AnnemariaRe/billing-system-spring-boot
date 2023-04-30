@@ -11,11 +11,11 @@ import ru.nexign.brt.service.ClientService;
 import ru.nexign.brt.service.ReportService;
 import ru.nexign.jpa.dto.ClientDto;
 import ru.nexign.jpa.enums.ResponseStatus;
-import ru.nexign.jpa.request.Request;
-import ru.nexign.jpa.request.UsernameRequest;
-import ru.nexign.jpa.request.body.DepositRequestBody;
-import ru.nexign.jpa.request.body.TariffRequestBody;
-import ru.nexign.jpa.response.Response;
+import ru.nexign.jpa.dto.request.Request;
+import ru.nexign.jpa.dto.request.UsernameRequest;
+import ru.nexign.jpa.dto.request.body.DepositRequestBody;
+import ru.nexign.jpa.dto.request.body.TariffRequestBody;
+import ru.nexign.jpa.dto.response.Response;
 
 @Service
 public class CrudMessageConsumer {

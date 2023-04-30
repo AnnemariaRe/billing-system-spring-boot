@@ -9,7 +9,7 @@ import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.CodeSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import ru.nexign.jpa.response.Response;
+import ru.nexign.jpa.dto.response.Response;
 
 import java.util.HashMap;
 import java.util.Map;

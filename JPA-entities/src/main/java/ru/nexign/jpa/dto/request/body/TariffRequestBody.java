@@ -1,4 +1,4 @@
-package ru.nexign.jpa.response.body;
+package ru.nexign.jpa.dto.request.body;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,8 +9,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class TariffResponseBody implements Serializable {
-    private long id;
+public class TariffRequestBody implements Serializable {
     private String phoneNumber;
     private String tariffId;
 }
